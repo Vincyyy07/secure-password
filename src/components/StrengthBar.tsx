@@ -18,23 +18,22 @@ export function StrengthBar({ strength, score, maxScore }: StrengthBarProps) {
   const config = strength !== "none" ? strengthConfig[strength] : null;
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2.5">
       <div className="flex justify-between items-center h-5">
         <span className="text-xs font-mono text-muted-foreground tracking-wider uppercase">
           Strength
         </span>
-        {config && (
-          <span
-            className={cn(
-              "text-xs font-mono font-semibold tracking-wider uppercase transition-colors duration-300",
-              strength === "weak" && "text-destructive",
-              strength === "medium" && "text-warning",
-              strength === "strong" && "text-primary"
-            )}
-          >
-            {config.label}
-          </span>
-        )}
+        <span
+          className={cn(
+            "text-xs font-mono font-semibold tracking-wider uppercase transition-colors duration-300",
+            strength === "none" && "text-muted-foreground",
+            strength === "weak" && "text-destructive",
+            strength === "medium" && "text-warning",
+            strength === "strong" && "text-primary"
+          )}
+        >
+          {config?.label ?? "Waiting"}
+        </span>
       </div>
       <div className="h-2 w-full rounded-full bg-secondary overflow-hidden">
         <div
@@ -45,6 +44,7 @@ export function StrengthBar({ strength, score, maxScore }: StrengthBarProps) {
           style={{ width: `${percentage}%` }}
         />
       </div>
+      <p className="text-[11px] font-mono text-muted-foreground">Score: {score}/{maxScore}</p>
     </div>
   );
 }
