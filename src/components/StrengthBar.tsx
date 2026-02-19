@@ -16,17 +16,18 @@ const strengthConfig: Record<Exclude<Strength, "none">, { label: string; colorCl
 export function StrengthBar({ strength, score, maxScore }: StrengthBarProps) {
   const percentage = strength === "none" ? 0 : Math.max(5, (score / maxScore) * 100);
   const config = strength !== "none" ? strengthConfig[strength] : null;
+  const segments = Array.from({ length: maxScore });
 
   return (
-    <div className="space-y-2">
-      <div className="flex justify-between items-center h-5">
-        <span className="text-xs font-mono text-muted-foreground tracking-wider uppercase">
+    <div className="space-y-3">
+      <div className="flex h-5 items-center justify-between">
+        <span className="text-xs font-mono uppercase tracking-wider text-muted-foreground">
           Strength
         </span>
         {config && (
           <span
             className={cn(
-              "text-xs font-mono font-semibold tracking-wider uppercase transition-colors duration-300",
+              "text-xs font-mono font-semibold uppercase tracking-wider transition-colors duration-300",
               strength === "weak" && "text-destructive",
               strength === "medium" && "text-warning",
               strength === "strong" && "text-primary"
@@ -36,7 +37,8 @@ export function StrengthBar({ strength, score, maxScore }: StrengthBarProps) {
           </span>
         )}
       </div>
-      <div className="h-2 w-full rounded-full bg-secondary overflow-hidden">
+
+      <div className="h-2 w-full overflow-hidden rounded-full bg-secondary">
         <div
           className={cn(
             "h-full rounded-full transition-all duration-500 ease-out",
@@ -44,6 +46,24 @@ export function StrengthBar({ strength, score, maxScore }: StrengthBarProps) {
           )}
           style={{ width: `${percentage}%` }}
         />
+      </div>
+
+      <div className="grid grid-cols-8 gap-1">
+        {segments.map((_, index) => {
+          const threshold = ((index + 1) / maxScore) * 100;
+          const isActive = percentage >= threshold;
+
+          return (
+            <span
+              key={index}
+              className={cn(
+                "h-1.5 rounded-full transition-colors duration-300",
+                isActive && config?.colorClass,
+                !isActive && "bg-secondary"
+              )}
+            />
+          );
+        })}
       </div>
     </div>
   );
