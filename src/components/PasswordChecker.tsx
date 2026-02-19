@@ -39,8 +39,7 @@ export function PasswordChecker() {
           <Shield className="h-8 w-8 text-primary" />
         </div>
         <h1 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
-          <span className="text-gradient-primary">Password</span>{" "}
-          <span className="text-foreground">Command Center</span>
+          <span className="text-gradient-primary">secure_password</span>
         </h1>
         <p className="text-sm font-mono text-muted-foreground">
           Real-time analysis, policy checks, and one-click generation
