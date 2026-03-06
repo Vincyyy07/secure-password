@@ -30,14 +30,14 @@ export function PasswordChecker() {
 
   return (
     <div className="w-full max-w-2xl space-y-6">
-      <div className="space-y-3 text-center">
-        <span className="mx-auto inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-xs font-mono tracking-wider text-primary">
+      <div className="flex flex-col items-center justify-center space-y-3 text-center mb-4">
+        <div className="inline-flex items-center justify-center h-16 w-16 rounded-2xl border border-primary/20 bg-card/90 shadow-lg shadow-primary/10">
+          <Shield className="h-8 w-8 text-primary" />
+        </div>
+        <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1 text-xs font-mono tracking-wider text-primary">
           <Shield className="h-3.5 w-3.5" />
           SECURITY SUITE
         </span>
-        <div className="inline-flex items-center justify-center mb-1 h-16 w-16 rounded-2xl border border-primary/20 bg-card/90 shadow-lg shadow-primary/10">
-          <Shield className="h-8 w-8 text-primary" />
-        </div>
         <h1 className="text-3xl font-bold font-heading tracking-tight sm:text-4xl">
           <span className="text-gradient-primary">SECURE PASSWORD</span>
         </h1>
