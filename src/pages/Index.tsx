@@ -20,7 +20,7 @@ const Index = () => {
 
       <footer className="relative z-10 mx-auto w-full max-w-5xl text-center pb-2">
         <p className="text-sm font-mono text-muted-foreground/80 transition-colors hover:text-muted-foreground">
-          &copy; 2026 Vincyyy. Crafted with <span className="text-red-500 transition-colors hover:text-red-600 dark:hover:text-red-400">&hearts;</span> and a lot of Vibe.
+          &copy; 2026. Crafted with <span className="text-red-500 transition-colors hover:text-red-600 dark:hover:text-red-400">&hearts;</span> and a lot of Vibe.
         </p>
       </footer>
     </main>
