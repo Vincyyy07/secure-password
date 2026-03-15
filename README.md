@@ -118,7 +118,3 @@ src/
 6. Commit your changes
 7. Push to the branch
 8. Open a Pull Request
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
